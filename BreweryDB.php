@@ -46,6 +46,12 @@ class BreweryDB {
 			}
 
 			foreach ( $ids as $id ) {
+				
+				// Convert the ID if old id is used
+				if ( is_numeric( $id ) ) {
+					$id = $this->convert_id( $id, 'brewery' );
+				}
+
 				$breweryObj = $this->get_brewery( $id );
 
 				if ( "success" !== $breweryObj->status ) {
@@ -114,6 +120,12 @@ class BreweryDB {
 			
 			// Beers
 			foreach ( $ids as $id ) {
+				
+				// Convert the ID if old id is used
+				if ( is_numeric( $id ) ) {
+					$id = $this->convert_id( $id, 'beer' );
+				}
+
 				$beerObj = $this->get_beer( $id );
 				if ( "success" !== $beerObj->status ) {
 					return new WP_Error('error', __( $beerObj->message ));
@@ -244,6 +256,34 @@ class BreweryDB {
 		}
 		
 		return $beerObj;
+	}
+
+	function convert_id( $id, $type ) {
+		if ( is_null( $id ) || "" == $id ) {
+			return new WP_Error('error', __( "No id set." ));
+		}
+
+		$api_args = array(
+			'key'  => $this->api_key,
+			'type' => $type,
+			'ids'   => $id,
+		);
+			
+		$url = $this->create_api_url( 'convertid', $api_args );
+
+		$data = wp_remote_post( $url, array('timeout' => 10 ) );
+		if ( is_wp_error( $data ) ) {
+			return new WP_Error( 'error', __( $data->get_error_message() ) );
+		}
+
+		$jsonBody = wp_remote_retrieve_body( $data );
+		$guid = json_decode( $jsonBody );
+
+		if ("success" !== $guid->status) {
+			return new WP_Error('error', __( "Unable to convert Id.  Please check your Id or contact BreweryDB." ));
+		}
+
+		return $guid->data[0]->newId;
 	}
 
 	function get_primary_location( $locations ) {
