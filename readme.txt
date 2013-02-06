@@ -19,8 +19,8 @@ This plugin uses the Brewery DB API to retrieve data and you must register for a
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 Shortcode usage
-    [brewery id=brewery-id]
-    [beer id=beer-id]
+	[brewery id=brewery-id]
+	[beer id=beer-id]
 
 More usage examples in documentation.
 
@@ -36,7 +36,7 @@ The Brewery DB Plugin is powered by http://www.brewerydb.com/
 == Changelog ==
 = 2.0.0 =
 * Updated plugin to work with BreweryDB V2 API
-* Removed some shortcodes
+* 
 
 = 0.1.3 =
 * index.php

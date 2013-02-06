@@ -1,0 +1,28 @@
+Documentation
+
+Example on how to obtain ids
+	
+	Brewery - http://brewerydb.com/brewery/<brewery-id>
+	Beer 	- http://brewerydb.com/beer/<beer-id>
+	
+Shortcode Usage
+
+Display a Single Beer in your post
+
+	[beer id=<beer-id>]
+
+Display Multiple Beers in your Post
+
+	[beer id=<beer-id>,<beer-id, etc]
+	
+Display Single Brewery in your Post
+	
+	[brewery id=<brewery-id>]
+	
+Display Multiple Breweries in your Post
+
+	[brewery id=<brewery-id>,<brewery-id>,etc]
+
+To add a text to the top of the brewery or beer output
+	[brewery etc...][/brewery]
+	[beer etc...]<TITLE>[/beer]
