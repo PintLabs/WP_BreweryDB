@@ -26,7 +26,7 @@ class BreweryDB {
 			return new WP_Error('error', __( 'No BreweryDB API key provided.' ));
 		}
 		
-		wp_enqueue_style('my-style', get_bloginfo('wpurl') . '/wp-content/plugins/brewery-db/css/style.css');
+		wp_enqueue_style('brewerydb-styles', plugins_url('/css/styles.css'));
 	}
 	
 	function brewery( $attrs, $content = null) {
@@ -39,7 +39,7 @@ class BreweryDB {
 		$ids = explode( ",", $attrs['id'] );
 		
 		if ( is_array( $ids ) ) {
-			$output .= '<div class="breweries">';
+			$output .= '<div id="breweries">';
 			
 			if ( "" != $content ) {
 				$output .= '<div class="text">' . $content . '</div>';
@@ -92,9 +92,9 @@ class BreweryDB {
 
 				// Brewery Description
 				$output .= '<div class="description">' . $breweryObj->data->description . '</div>';
+				$output .= '<div class="clearfix"></div>';
 				$output .= '</div>';
 			}
-
 			$output .= '</div>';
 		}
 
@@ -111,7 +111,7 @@ class BreweryDB {
 		$ids = explode( ",", $attrs['id'] );
 
 		if ( is_array( $ids ) ) {
-			$output .= '<div class="beers">';
+			$output .= '<div id="beers">';
 			
 			// Content between tags
 			if ( !is_null( $content ) ) { 
@@ -156,7 +156,7 @@ class BreweryDB {
 				$output .= '<div class="brewery">Brewed by: ' . $brewery_string . '</div>';
 
 				// Description
-				$output .= '<div class="description">' . $beerObj->data->description . '</div>';				
+				$output .= '<div class="description">' . $beerObj->data->description . '</div>';
 
 				// ABV
 				if ( isset( $beerObj->data->abv ) ) { 
@@ -178,6 +178,7 @@ class BreweryDB {
 					$output .= '<div class="glass">Glassware: ' . $beerObj->data->glass->name  . ' Glass</div>';
 				}
 
+				$output .= '<div class="clearfix"></div>';
 				$output .= '</div>';
 			}
 

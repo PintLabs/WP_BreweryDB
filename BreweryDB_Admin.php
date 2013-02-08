@@ -41,7 +41,7 @@ class BreweryDB_Admin {
 		?>
 		<div class="wrap">
 			<h2>Brewery DB Options</h2>
-			<p>You can register for an API key at <a href="http://www.brewerydb.com/api/register/">http://www.brewerydb.com/api/register/</a></p>
+			<p>You can register for an API key at <a href="http://www.brewerydb.com/developers">http://www.brewerydb.com/developers</a></p>
 			<form method="post">
     			<table class="form-table">
         			<tr valign="top">
