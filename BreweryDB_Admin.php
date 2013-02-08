@@ -26,7 +26,7 @@ class BreweryDB_Admin {
 	}
 	
 	function admin_menu() {
-		add_options_page('Brewery DB Options', 'Brewery DB', 'manage_options', 'my-unique-identifier', array('BreweryDb_Admin', 'my_plugin_options'));
+		add_options_page('BreweryDB Options', 'BreweryDB', 'manage_options', 'my-unique-identifier', array('BreweryDB_Admin', 'my_plugin_options'));
 	}
 	
 	function my_plugin_options() {

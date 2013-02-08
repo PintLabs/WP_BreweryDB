@@ -11,12 +11,17 @@
 	padding:10px;
 }
 
-#beers .style {
+#beers .style, #breweries .established {
 	font-style: italic;
 }
 
 .clearfix {
 	clear:both;
+}
+
+#breweries .address {
+	margin-top: 4px;
+	margin-bottom: 4px;
 }
 
 .abv, .ibu, .glass, .available {

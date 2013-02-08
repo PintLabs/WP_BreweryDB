@@ -77,16 +77,16 @@ class BreweryDB {
 				$primary_location = $this->get_primary_location( $breweryObj->data->locations );
 				if (!is_null( $primary_location ) ) {
 					$output .= '<div class="address">';
- 					$output .= '<div class="street-address">' . $primary_location->streetAddress . '</div>';
+ 					$output .= '<span class="street-address">' . $primary_location->streetAddress . '</span> ';
  					
  					if ( "" != $primary_location->extendedAddress ) {
- 						$output .= '<div class="extended-address">' . $primary_location->extendedAddress . '</div>';
+ 						$output .= '<span class="extended-address">' . $primary_location->extendedAddress . '</span> ';
  					}
 
  					$output .= '<span class="locality">' . $primary_location->locality . '</span>, ';
  					$output .= '<span class="region">' . $primary_location->region . '</span> ';
- 					$output .= '<span class="postal-code">' . $primary_location->postalCode . '</span>';
- 					$output .= '<div class="country-name">' . $primary_location->country->displayName . '</div>';
+ 					$output .= '<span class="postal-code">' . $primary_location->postalCode . '</span> ';
+ 					$output .= '<span class="country-name">' . $primary_location->country->displayName . '</span>';
 					$output .= '</div>';
 				}
 
